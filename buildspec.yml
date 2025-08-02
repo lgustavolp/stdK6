@@ -9,7 +9,7 @@ phases:
   build:
     commands:
       - echo "Run performance tests"
-      - docker run -i loadimpact/k6 run - Cloud_Tests/k6CloudTest_AWS.js
+      - docker run -i -v $(pwd):/scripts loadimpact/k6 run /scripts/Cloud_Tests/k6CloudTest_AWS.js
   post_build:
     commands:
       - echo "Performance tests completed successfully!"
