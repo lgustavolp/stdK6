@@ -9,5 +9,5 @@ jobs:
       - name: step 2 - run k6 load test
         uses: grafana/run-k6-action@v1
         with:
-          filename: /CloudTest/k6CloudTest_AWS.js
+          path: /CloudTest/k6CloudTest_AWS.js
 
