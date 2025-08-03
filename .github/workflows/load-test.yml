@@ -6,6 +6,14 @@ jobs:
     steps:
       - name: step 1 - checkout
         uses: actions/checkout@v4
+      - name: step 2 - install k6
+        run: |
+          sudo apt update
+          sudo apt install -y gnupg software-properties-common
+          curl -s https://dl.k6.io/key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/k6-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt update
+          sudo apt install -y k6
       - name: step 2 - run k6 load test
         uses: grafana/run-k6-action@v1
         with:
