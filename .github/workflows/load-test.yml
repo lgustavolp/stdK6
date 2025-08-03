@@ -14,7 +14,7 @@ jobs:
           echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
           sudo apt update
           sudo apt install -y k6
-      - name: step 2 - run k6 load test
+      - name: step 3 - run k6 load test
         uses: grafana/run-k6-action@v1
         with:
           path: ./Cloud_Tests/k6CloudTest_AWS.js
